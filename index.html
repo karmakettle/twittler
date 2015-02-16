@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="main.css">
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <title>Twittler</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
   </head>
@@ -11,7 +13,9 @@
     </header>
 
     <section>
-      <a href="#" class="add-tweets"></a>
+      <div class="container">
+        <a href="#" class="add-tweets"></a>
+      </div>
     </section>
 
     <script>
@@ -24,7 +28,7 @@
         var displayTweets = function(startIndex, stopIndex) {
           while(stopIndex >= startIndex){
             var tweet = streams.home[stopIndex];
-            var $tweet = $('<div></div>');
+            var $tweet = $('<div class="tweet"></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $(".add-tweets").after($tweet);
             stopIndex -= 1;
@@ -38,7 +42,8 @@
         //Update number of tweets on the add button every few seconds
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
-          $(".add-tweets").text("Add "+ numTweets +" new tweets.");
+          var hasS = numTweets === 1 ? "Tweet" : "Tweets"
+          $(".add-tweets").text("View "+ numTweets +" new " + hasS);
           if (!(numTweets === 0)) {
             $(".add-tweets").show();
           }
