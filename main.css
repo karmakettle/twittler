@@ -52,9 +52,8 @@ Base styles
 */
 body {
 	font: 18px 'Yanone Kaffeesatz', sans-serif;
-}
-
-section {
+	color: #02273D;
+	background: #88040E;
 	text-align: center;
 }
 
@@ -62,6 +61,18 @@ section {
 	min-width: 400px;
 	max-width: 620px;
 	margin: 0 auto;
+	background: #FAFBF2;
+	border-radius: 10px;
+}
+
+/* ============================ 
+Base styles
+*/
+
+header {
+	height: 80px;
+	color: #FAFBF2;
+	font-size: 50px;
 }
 
 /* ============================
