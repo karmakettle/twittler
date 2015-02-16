@@ -18,6 +18,7 @@
 
       $(document).ready(function(){
 
+        //display only new tweets & only the amount reported to the user
         var nextIndex, numTweets;
 
         var displayTweets = function(startIndex, stopIndex) {
@@ -31,8 +32,10 @@
           nextIndex = streams.home.length;
         } 
 
+        //Initial display has ten tweets
         displayTweets(0, 9);
 
+        //Update number of tweets on the add button every few seconds
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
           $(".add-tweets").text("Add "+ numTweets +" new tweets.");
