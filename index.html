@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="main.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
   </head>
   <body>
+
+    <header>
+    </header>
+
+    <section>
+      <a href="#" class="add-tweets"></a>
+    </section>
+
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
 
-        var nextIndex;
+        var nextIndex, numTweets;
 
-        var displayTweets = function(startIndex) {
-          var index = streams.home.length - 1;
-          while(index >= startIndex){
-            var tweet = streams.home[index];
+        var displayTweets = function(startIndex, stopIndex) {
+          while(stopIndex >= startIndex){
+            var tweet = streams.home[stopIndex];
             var $tweet = $('<div></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
-            $tweet.prependTo($body);
-            index -= 1;
+            $(".add-tweets").after($tweet);
+            stopIndex -= 1;
           }
           nextIndex = streams.home.length;
         } 
 
-        displayTweets(0);
+        displayTweets(0, 9);
+
+        setInterval(function() {
+          numTweets = streams.home.length - nextIndex;
+          $(".add-tweets").text("Add "+ numTweets +" new tweets.");
+          if (!(numTweets === 0)) {
+            $(".add-tweets").show();
+          }
+        }, 5000);
 
         var displayNewTweets = function(){
-          displayTweets(nextIndex);
+          displayTweets(nextIndex, (nextIndex + numTweets - 1));
         }
 
-        setInterval(displayNewTweets, 3000);
+        $(".add-tweets").on("click", function() {
+          $(this).hide();
+          displayNewTweets();
+        });
 
       });
 
