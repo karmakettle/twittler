@@ -10,6 +10,7 @@
   <body>
 
     <header>
+      <h1>Twittler</h1>
     </header>
 
     <section>
@@ -28,8 +29,9 @@
         var displayTweets = function(startIndex, stopIndex) {
           while(stopIndex >= startIndex){
             var tweet = streams.home[stopIndex];
-            var $tweet = $('<div class="tweet"></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            var $tweet = $('<div class="tweet"><span class="tweet-user">@' + tweet.user + '</span>' +
+            '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
+             tweet.message + '</div>');
             $(".add-tweets").after($tweet);
             stopIndex -= 1;
           }
@@ -43,8 +45,8 @@
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
           var hasS = numTweets === 1 ? "Tweet" : "Tweets"
-          $(".add-tweets").text("View "+ numTweets +" new " + hasS);
           if (!(numTweets === 0)) {
+            $(".add-tweets").text("View "+ numTweets +" new " + hasS);
             $(".add-tweets").show();
           }
         }, 5000);
