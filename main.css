@@ -81,12 +81,26 @@ Section - Tweets and AddTweets
 
 .add-tweets {
 	background: #CEE3F6;
-	width: 500px;
 	height: 100px;
 }
 
 .tweet {
-	height: 1.5em;
-	line-height: 1.5em;
-	margin: 20px 0;
+	padding: 12px;
+	border-bottom: 1px solid #B3A971;
+}
+
+.tweet-container {
+	margin: 0 auto;
+	width: 370px;
+	text-align: left;
+}
+
+.tweet-user {
+	font-weight: bold;
+	font-size: 18px;
+	margin-right: 7px;
+}
+
+.tweet-time {
+	font-size: 13px;
 }

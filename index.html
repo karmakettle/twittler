@@ -29,9 +29,9 @@
         var displayTweets = function(startIndex, stopIndex) {
           while(stopIndex >= startIndex){
             var tweet = streams.home[stopIndex];
-            var $tweet = $('<div class="tweet"><span class="tweet-user">@' + tweet.user + '</span>' +
+            var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="tweet-top-row"><span class="tweet-user">@' + tweet.user + '</span>' +
             '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
-             tweet.message + '</div>');
+            '</div>' + tweet.message + '</div></div>');
             $(".add-tweets").after($tweet);
             stopIndex -= 1;
           }
