@@ -14,8 +14,13 @@
     </header>
 
     <section>
+      <form class="container create-tweet">
+        <textarea name="create-tweet"></textarea>
+        <button type="submit" name="submit">Tweetle</button>
+      </form>
+
       <div class="container">
-        <a href="#" class="add-tweets"></a>
+        <a href="#" class="view-more-tweets"></a>
       </div>
     </section>
 
@@ -32,7 +37,7 @@
             var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + tweet.user + '"></div><div class="tweet-top-row"><a class="tweet-user" href="user_timeline.html?' + tweet.user + '">@' + tweet.user + '</a>' +
             '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
             '</div>' + tweet.message + '</div></div>');
-            $(".add-tweets").after($tweet);
+            $(".view-more-tweets").after($tweet);
             stopIndex -= 1;
           }
           nextIndex = streams.home.length;
@@ -46,8 +51,8 @@
           numTweets = streams.home.length - nextIndex;
           var hasS = numTweets === 1 ? "Tweet" : "Tweets"
           if (!(numTweets === 0)) {
-            $(".add-tweets").text("View "+ numTweets +" new " + hasS);
-            $(".add-tweets").show();
+            $(".view-more-tweets").text("View "+ numTweets +" new " + hasS);
+            $(".view-more-tweets").show();
           }
         }, 5000);
 
@@ -55,8 +60,8 @@
           displayTweets(nextIndex, (nextIndex + numTweets - 1));
         }
 
-        $(".add-tweets").on("click", function() {
-          $(this).hide();
+        $(".view-more-tweets").on("click", function() {
+          $(this).text("");
           displayNewTweets();
         });
 

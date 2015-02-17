@@ -53,7 +53,7 @@ Base styles
 body {
 	font: 18px 'Yanone Kaffeesatz', sans-serif;
 	color: #02273D;
-	background: #88040E;
+	background: #018AB8 url("twitter.jpg") no-repeat top center fixed;
 	text-align: center;
 }
 
@@ -61,32 +61,61 @@ body {
 	min-width: 400px;
 	max-width: 620px;
 	margin: 0 auto;
-	background: #FAFBF2;
+	background: #FDFFFE;
 	border-radius: 10px;
 }
 
 /* ============================ 
-Base styles
+Header
 */
 
 header {
 	height: 80px;
 	color: #FAFBF2;
 	font-size: 50px;
+	font-weight: bold;
+}
+
+/* ============================
+Author Tweets
+*/
+
+.create-tweet {
+	padding: 10px 0;
+	margin-bottom: 10px;
+	background-color: rgba(250, 251, 242, 0.8);
+}
+
+.create-tweet textarea {
+	height: 70px;
+	width: 350px;
+	margin-right: 40px;
+	opacity: 1;
+}
+
+.create-tweet button {
+	font: 18px 'Yanone Kaffeesatz', sans-serif;
+	color: #02273D;
+	height: 45px;
+	width: 100px;
+	vertical-align: 1.8em;
+	text-align: right;
+	background: #FDFFFE url("quill.png") no-repeat;
+	padding-right: 12px;
 }
 
 /* ============================
 Section - Tweets and AddTweets
 */
 
-.add-tweets {
-	background: #CEE3F6;
-	height: 100px;
+.view-more-tweets {
+	background: #FDFFFE;
+	display: inline-block;
 }
 
 .tweet {
 	padding: 12px;
-	border-bottom: 1px solid #B3A971;
+	border-bottom: 1px solid #898989;
 }
 
 .tweet-container {
