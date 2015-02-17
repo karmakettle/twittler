@@ -91,7 +91,7 @@ Section - Tweets and AddTweets
 
 .tweet-container {
 	margin: 0 auto;
-	width: 370px;
+	width: 430px;
 	text-align: left;
 }
 
@@ -103,4 +103,33 @@ Section - Tweets and AddTweets
 
 .tweet-time {
 	font-size: 13px;
+}
+
+/* ============================ 
+Tweet Images
+*/
+
+.img-container {
+	background-image: url("user_images.png");
+	float: left;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	margin-right: 12px;
+}
+
+.douglascalhoun {
+	background-position: 0 0;
+} 
+
+.sharksforcheap {
+	background-position: 0 -60px;
+}
+
+.shawndrost {
+	background-position: 0 -120px;
+}
+
+.mracus {
+	background-position: 0 -180px;
 }
