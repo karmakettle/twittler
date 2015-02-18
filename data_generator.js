@@ -56,6 +56,12 @@ var generateTweet = function(message){
       '</div>' + tweet.message + '</div></div>');
     $("textarea").val("");
     $(".view-more-tweets").after($tweet);
+    if ($("aside").hasClass("active") && streams.activeUser === tweet.user) {
+      $tweet = $('<div class="tweet"><div class="tweet-container"><div class="tweet-top-row"><span class="tweet-user">@' + tweet.user + '</span>' +
+        '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
+        '</div>' + tweet.message + '</div></div>');
+      $(".timeline-tweets").prepend($tweet);
+    }
   }
 };
 

@@ -94,18 +94,21 @@
               streams.activeUser = user;
               $(".img-large").addClass(user + "-large");
               displayUserTweets(user);
+              $("aside").addClass("active");
               $(".user-timeline").show(600).css("display", "inline-block");
             }
 
           if (activeUser !== undefined && activeUser === user) {
             $(".user-timeline").hide(600, function() {
               $(".img-large").removeClass(activeUser + "-large");
+              $("aside").removeClass("active");
               streams.activeUser = undefined;
             });
           }
           else if (activeUser !== undefined && activeUser !== user) {
             $(".user-timeline").hide(600, function() {
               $(".img-large").removeClass(activeUser + "-large");
+              $("aside").removeClass("active");
               streams.activeUser = undefined;
               setTimeout(openPanel, 200);
             });
@@ -119,6 +122,7 @@
           $(".user-timeline").hide(600, function() {
             var activeUser = streams.activeUser;
             $(".img-large").removeClass(activeUser + "-large");
+            $("aside").removeClass("active");
             streams.activeUser = undefined;
           });
         });
