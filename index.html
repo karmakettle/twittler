@@ -88,10 +88,32 @@
         }
 
         $(".tweet-user").on("click", function(){
+          var activeUser = streams.activeUser;
           var user = $(this).data("user");
-          $(".img-large").addClass(user + "-large");
-          displayUserTweets(user);
-          $(".user-timeline").show(600).css("display", "inline-block");
+          var openPanel = function() {
+              streams.activeUser = user;
+              $(".img-large").addClass(user + "-large");
+              displayUserTweets(user);
+              $(".user-timeline").show(600).css("display", "inline-block");
+            }
+
+          if (activeUser !== undefined && activeUser === user) {
+            $(".user-timeline").hide(600, function() {
+              $(".img-large").removeClass(activeUser + "-large");
+              streams.activeUser = undefined;
+            });
+          }
+          else if (activeUser !== undefined && activeUser !== user) {
+            $(".user-timeline").hide(600, function() {
+              $(".img-large").removeClass(activeUser + "-large");
+              streams.activeUser = undefined;
+              setTimeout(openPanel, 200);
+            });
+          }
+          else {
+            openPanel();
+          }
+          
         });
 
       });
