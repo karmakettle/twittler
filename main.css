@@ -197,6 +197,10 @@ User Timeline Section
 	cursor: pointer;
 }
 
+.timeline-tweets .tweet-container {
+	width: 230px;
+}
+
 .img-large {
 	background: url("user_imgs_large.png") no-repeat;
 	width: 190px;
