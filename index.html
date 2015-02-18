@@ -26,7 +26,7 @@
 
     <section class="user-timeline">
       <div class="img-large"></div>
-      <div class="container"></div>
+      <div class="timeline-tweets"></div>
     </section>
 
     <script>
@@ -73,11 +73,23 @@
           generateTweet(message);
         });
 
+        var displayUserTweets = function(user) {
+          var userTweets = streams.users[user];
+          for (var i=0; i<userTweets.length; i++) {
+            var tweet = userTweets[i];
+            var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="tweet-top-row"><span class="tweet-user">@' + tweet.user + '</span>' +
+            '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
+            '</div>' + tweet.message + '</div></div>');
+            $(".timeline-tweets").prepend($tweet);
+          }
+        }
+
         $(".tweet-user").on("click", function(){
           $(".tweet-panel").animate({right: "120px"}, 600);
+          var user = $(this).data("user");
+          $(".img-large").addClass(user + "-large");
+          displayUserTweets(user);
           $(".user-timeline").show(600);
-          //var timeline = $('<section><img src="user_images.png" class="' + $(this).data("user") + '"</section>');
-          //$("section").after(timeline);
         });
 
       });
