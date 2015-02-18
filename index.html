@@ -43,7 +43,7 @@
           while(startIndex <= stopIndex){
             var tweet = streams.home[startIndex];
             var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + 
-              tweet.user + '"></div><div class="tweet-top-row" ><a class="tweet-user" data-user="' + tweet.user + '"" href="#">@' + tweet.user + '</a>' + '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' + '</div>' + tweet.message + '</div></div>');
+              tweet.user + '"></div><div class="tweet-top-row" ><a class="tweet-user" data-user="' + tweet.user + '" href="#">@' + tweet.user + '</a>' + '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' + '</div>' + tweet.message + '</div></div>');
             $(".view-more-tweets").after($tweet);
             startIndex += 1;
           }
@@ -87,7 +87,7 @@
           }
         }
 
-        $(".tweet-user").on("click", function(){
+        $(".tweet-viewer").on("click", ".tweet-user", function(){
           var activeUser = streams.activeUser;
           var user = $(this).data("user");
           var openPanel = function() {
