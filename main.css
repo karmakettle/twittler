@@ -150,6 +150,7 @@ Tweet Images
 	height: 50px;
 	overflow: hidden;
 	margin-right: 12px;
+	border-radius: 5px;
 }
 
 .douglascalhoun {
@@ -166,4 +167,46 @@ Tweet Images
 
 .mracus {
 	background-position: 0 -180px;
+}
+
+/* ============================ 
+User Timeline Section
+*/
+
+.user-timeline {
+	background-color: #FDFFFE;
+	position: fixed;
+	top: 100px;
+	right: 100px;
+	height: 500px;
+	width: 300px;
+	border-radius: 10px;
+	display: none;
+}
+
+.img-large {
+	background: url("user_imgs_large.png") no-repeat;
+	width: 190px;
+	height: 190px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.sharksforcheap-large {
+	background-position: 0 0;
+}
+
+.shawndrost-large {
+	background-position: 0 -200px;
+}
+
+.douglascalhoun-large {
+	background-position: 0 -400px;
+}
+
+.mracus-large {
+	background-position: 0 -600px;
+	height: 264px;
 }

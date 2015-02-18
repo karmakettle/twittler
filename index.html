@@ -13,7 +13,7 @@
       <h1>Twittler</h1>
     </header>
 
-    <section>
+    <section class="tweet-panel">
       <form class="container create-tweet">
         <textarea name="create-tweet"></textarea>
         <button type="button">Tweetle</button>
@@ -22,6 +22,11 @@
       <div class="container">
         <a href="#" class="view-more-tweets"></a>
       </div>
+    </section>
+
+    <section class="user-timeline">
+      <div class="img-large"></div>
+      <div class="container"></div>
     </section>
 
     <script>
@@ -69,9 +74,10 @@
         });
 
         $(".tweet-user").on("click", function(){
-          $("section").animate({right: "120px"}, 600);
-          var timeline = $('<section><img src="user_images.png" class="' + $(this).data("user") + '"</section>');
-          $("section").after(timeline);
+          $(".tweet-panel").animate({right: "120px"}, 600);
+          $(".user-timeline").show(600);
+          //var timeline = $('<section><img src="user_images.png" class="' + $(this).data("user") + '"</section>');
+          //$("section").after(timeline);
         });
 
       });
