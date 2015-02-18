@@ -38,20 +38,31 @@ var randomMessage = function(){
 };
 
 // generate random tweets on a random schedule
-var generateRandomTweet = function(){
+var generateTweet = function(message){
   var tweet = {};
   tweet.user = randomElement(users);
-  tweet.message = randomMessage();
+  var hasMessage = message !== undefined;
+  tweet.message = hasMessage ? message : randomMessage();
   tweet.created_at = new Date();
-  addTweet(tweet);
+  if (!hasMessage) {
+    addTweet(tweet);
+  }
+  else {
+    streams.users[tweet.user].push(tweet);
+    var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + tweet.user + '"></div><div class="tweet-top-row"><a class="tweet-user" href="user_timeline.html?' + tweet.user + '">@' + tweet.user + '</a>' +
+        '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
+        '</div>' + tweet.message + '</div></div>');
+    $(".view-more-tweets").after($tweet);
+    $("textarea").val("");
+  }
 };
 
 for(var i = 0; i < 10; i++){
-  generateRandomTweet();
+  generateTweet();
 }
 
 var scheduleNextTweet = function(){
-  generateRandomTweet();
+  generateTweet();
   setTimeout(scheduleNextTweet, Math.random() * 7000);
 };
 scheduleNextTweet();

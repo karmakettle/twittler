@@ -46,13 +46,12 @@
         //Initial display has ten tweets
         displayTweets(0, 9);
 
-        //Update number of tweets on the add button every few seconds
+        //Update number of tweets on the view-more link every few seconds
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
           var hasS = numTweets === 1 ? "Tweetle" : "Tweetles"
           if (!(numTweets === 0)) {
             $(".view-more-tweets").text("View "+ numTweets +" new " + hasS);
-            $(".view-more-tweets").show();
           }
         }, 5000);
 
@@ -67,18 +66,7 @@
 
         $(".create-tweet").on("click", "button", function() {
           var message = $("textarea").val();
-          if (message !== "") {
-            var tweet = {};
-            tweet.user = randomElement(users);
-            tweet.message = message;
-            tweet.created_at = new Date();
-            streams.users[tweet.user].push(tweet);
-            var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + tweet.user + '"></div><div class="tweet-top-row"><a class="tweet-user" href="user_timeline.html?' + tweet.user + '">@' + tweet.user + '</a>' +
-            '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
-            '</div>' + tweet.message + '</div></div>');
-            $(".view-more-tweets").after($tweet);
-            $("textarea").val("")
-          }
+          generateTweet(message);
         })
 
       });
