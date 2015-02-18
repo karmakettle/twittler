@@ -19,14 +19,15 @@
         <button type="button">Tweetle</button>
       </form>
 
-      <div class="container">
+      <div class="container tweet-viewer">
         <a href="#" class="view-more-tweets"></a>
       </div>
-    </section>
 
-    <section class="user-timeline">
+    <aside class="user-timeline">
       <div class="img-large"></div>
       <div class="timeline-tweets"></div>
+    </aside>
+
     </section>
 
     <script>
@@ -85,11 +86,10 @@
         }
 
         $(".tweet-user").on("click", function(){
-          $(".tweet-panel").animate({right: "120px"}, 600);
           var user = $(this).data("user");
           $(".img-large").addClass(user + "-large");
           displayUserTweets(user);
-          $(".user-timeline").show(600);
+          $(".user-timeline").show(600).css("display", "inline-block");
         });
 
       });
