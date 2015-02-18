@@ -109,6 +109,10 @@ Author Tweets
 Section - Tweets and AddTweets
 */
 
+section {
+	position: relative;
+}
+
 .view-more-tweets {
 	background: #FDFFFE;
 	display: inline-block;
