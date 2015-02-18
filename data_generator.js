@@ -55,6 +55,7 @@ var generateTweet = function(message){
       tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' + 
       '</div>' + tweet.message + '</div></div>');
     $("textarea").val("");
+    $(".view-more-tweets").after($tweet);
   }
 };
 
