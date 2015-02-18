@@ -49,10 +49,11 @@ var generateTweet = function(message){
   }
   else {
     streams.users[tweet.user].push(tweet);
-    var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + tweet.user + '"></div><div class="tweet-top-row"><a class="tweet-user" href="user_timeline.html?' + tweet.user + '">@' + tweet.user + '</a>' +
-        '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
-        '</div>' + tweet.message + '</div></div>');
-    $(".view-more-tweets").after($tweet);
+    var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + 
+      tweet.user + '"></div><div class="tweet-top-row" ><a class="tweet-user" data-user="' + 
+      tweet.user + '"" href="#">@' + tweet.user + '</a>' + '<span class="tweet-time">' + 
+      tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' + 
+      '</div>' + tweet.message + '</div></div>');
     $("textarea").val("");
   }
 };

@@ -25,6 +25,7 @@
 
     <aside class="user-timeline">
       <div class="img-large"></div>
+      <div class="close-icon"></div>
       <div class="timeline-tweets"></div>
     </aside>
 
@@ -54,7 +55,7 @@
         //Update number of tweets on the view-more link every few seconds
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
-          var hasS = numTweets === 1 ? "Tweetle" : "Tweetles"
+          var hasS = numTweets === 1 ? "Tweetle" : "Tweetles";
           if (!(numTweets === 0)) {
             $(".view-more-tweets").text("View "+ numTweets +" new " + hasS);
           }
@@ -64,8 +65,9 @@
           displayTweets(nextIndex, (nextIndex + numTweets - 1));
         }
 
-        $(".view-more-tweets").on("click", function() {
+        $(".view-more-tweets").on("click", function(event) {
           $(this).text("");
+          event.preventDefault();
           displayNewTweets();
         });
 

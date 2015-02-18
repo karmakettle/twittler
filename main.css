@@ -178,12 +178,22 @@ User Timeline Section
 */
 
 .user-timeline {
+	position: relative;
 	background-color: #FDFFFE;
 	vertical-align: top;
-	width: 300px;
+	width: 21em;
 	margin-left: 50px;
 	border-radius: 10px;
 	display: none;
+}
+
+.close-icon {
+	background: url("close.png") no-repeat;
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	top: 10px;
+	right: 10px;
 }
 
 .img-large {
