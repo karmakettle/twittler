@@ -194,6 +194,7 @@ User Timeline Section
 	width: 15px;
 	top: 10px;
 	right: 10px;
+	cursor: pointer;
 }
 
 .img-large {

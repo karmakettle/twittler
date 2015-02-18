@@ -113,7 +113,14 @@
           else {
             openPanel();
           }
-          
+        });
+
+        $(".close-icon").on("click", function(){
+          $(".user-timeline").hide(600, function() {
+            var activeUser = streams.activeUser;
+            $(".img-large").removeClass(activeUser + "-large");
+            streams.activeUser = undefined;
+          });
         });
 
       });
