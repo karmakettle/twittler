@@ -198,7 +198,8 @@ User Timeline Section
 }
 
 .timeline-tweets .tweet-container {
-	width: 230px;
+	width: 250px;
+	text-align: center;
 }
 
 .img-large {
