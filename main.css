@@ -87,6 +87,7 @@ Author Tweets
 }
 
 .create-tweet textarea {
+	margin-top: 6px;
 	height: 70px;
 	width: 350px;
 	margin-right: 40px;

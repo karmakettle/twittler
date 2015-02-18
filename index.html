@@ -16,7 +16,7 @@
     <section>
       <form class="container create-tweet">
         <textarea name="create-tweet"></textarea>
-        <button type="submit" name="submit">Tweetle</button>
+        <button type="button">Tweetle</button>
       </form>
 
       <div class="container">
@@ -32,15 +32,15 @@
         var nextIndex, numTweets;
 
         var displayTweets = function(startIndex, stopIndex) {
-          while(stopIndex >= startIndex){
-            var tweet = streams.home[stopIndex];
+          nextIndex = stopIndex + 1;
+          while(startIndex <= stopIndex){
+            var tweet = streams.home[startIndex];
             var $tweet = $('<div class="tweet"><div class="tweet-container"><div class="img-container ' + tweet.user + '"></div><div class="tweet-top-row"><a class="tweet-user" href="user_timeline.html?' + tweet.user + '">@' + tweet.user + '</a>' +
             '<span class="tweet-time">' + tweet.created_at.toDateString() + ', ' + tweet.created_at.toLocaleTimeString() + '</span>' +
             '</div>' + tweet.message + '</div></div>');
             $(".view-more-tweets").after($tweet);
-            stopIndex -= 1;
+            startIndex += 1;
           }
-          nextIndex = streams.home.length;
         } 
 
         //Initial display has ten tweets
@@ -49,7 +49,7 @@
         //Update number of tweets on the add button every few seconds
         setInterval(function() {
           numTweets = streams.home.length - nextIndex;
-          var hasS = numTweets === 1 ? "Tweet" : "Tweets"
+          var hasS = numTweets === 1 ? "Tweetle" : "Tweetles"
           if (!(numTweets === 0)) {
             $(".view-more-tweets").text("View "+ numTweets +" new " + hasS);
             $(".view-more-tweets").show();
@@ -64,6 +64,17 @@
           $(this).text("");
           displayNewTweets();
         });
+
+        $(".create-tweet").on("click", "button", function() {
+          var message = $("textarea").text();
+          if (message !== "") {
+            var tweet = {};
+            tweet.user = randomElement(users);
+            tweet.message = message;
+            tweet.created_at = new Date();
+            addTweet(tweet);
+          }
+        })
 
       });
 
